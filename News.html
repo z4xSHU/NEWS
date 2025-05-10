@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEWS PORTAL | STAY INFROMED</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="news.css">
+</head>
+<body>
+    <nav id="navbar">
+        <div class="container">
+            <div class="logo">NEWS PORTAL</div>
+            <div class="nav-links">
+                <a href="#" class="nav-link active" data-category="general">Home</a>
+                <a href="#" class="nav-link" data-category="business">Business</a>
+                <a href="#" class="nav-link" data-category="technology">Technology</a>
+                <a href="#" class="nav-link" data-category="health">Health</a>
+                <a href="#" class="nav-link" data-category="sports">Sports</a>
+                <a href="#" class="nav-link" data-category="entertainment">Entertainment</a>
+                <div class="theme-toggle">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <label for="dark-mode-toggle" class="toggle-label">
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon"></i>
+                        <span class="toggle-ball"></span>
+                    </label>
+                </div>
+                <div class="account-dropdown">
+                    <button id="account-btn" class="account-btn">
+                        <i class="fas fa-user"></i>
+                        <span id="username">Account</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#" id="login-btn">Login</a>
+                        <a href="#" id="account-section-btn" style="display: none;">My Account</a>
+                        <a href="#" id="logout-btn" style="display: none;">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1>Stay Focused, Stay Informed</h1>
+            <p>Get the latest news tailored to your interests</p>
+            <button id="explore-btn" class="btn">Explore News</button>
+        </div>
+    </header>
+
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Welcome to FocusFlow</h2>
+            <div class="auth-options">
+                <button id="google-login" class="auth-btn google">
+                    <i class="fab fa-google"></i> Continue with Google
+                </button>
+                <div class="divider">or</div>
+                <form id="email-form">
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" placeholder="••••••••" required>
+                        <a href="#" class="forgot-password">Forgot password?</a>
+                    </div>
+                    <button type="submit" class="btn">Login</button>
+                </form>
+                <p class="switch-form">Don't have an account? <a href="#" id="show-signup">Sign up</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="signup-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Create Your Account</h2>
+            <div class="auth-options">
+                <button id="google-signup" class="auth-btn google">
+                    <i class="fab fa-google"></i> Continue with Google
+                </button>
+                <div class="divider">or</div>
+                <form id="signup-form">
+                    <div class="form-group">
+                        <label for="signup-name">Full Name</label>
+                        <input type="text" id="signup-name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-email">Email</label>
+                        <input type="email" id="signup-email" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-password">Password (min 6 characters)</label>
+                        <input type="password" id="signup-password" placeholder="••••••••" minlength="6" required>
+                        <div class="password-strength"></div>
+                    </div>
+                    <button type="submit" class="btn">Sign Up</button>
+                </form>
+                <p class="switch-form">Already have an account? <a href="#" id="show-login">Login</a></p>
+            </div>
+        </div>
+    </div>
+
+    <main id="news-container" class="container">
+        <h2 id="news-category">Today's Headlines</h2>
+        <div class="news-grid" id="news-grid">
+        </div>
+    </main>
+
+    <div id="article-modal" class="modal">
+        <div class="modal-content article-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="article-title"></h2>
+            <div class="article-meta">
+                <span id="article-source"></span>
+                <span id="article-date"></span>
+            </div>
+            <img id="article-image" src="" alt="">
+            <p id="article-text"></p>
+            <a id="article-url" href="#" target="_blank" class="btn">Read Full Article</a>
+        </div>
+    </div>
+
+    <div id="account-modal" class="modal">
+        <div class="modal-content account-content">
+            <span class="close-btn">&times;</span>
+            <h2>My Account</h2>
+            <div class="account-info">
+                <div class="account-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="account-details">
+                    <p><strong>Name:</strong> <span id="account-name"></span></p>
+                    <p><strong>Email:</strong> <span id="account-email"></span></p>
+                </div>
+            </div>
+            <div class="account-actions">
+                <h3>Account Settings</h3>
+                <button id="change-password-btn" class="btn">Change Password</button>
+                <div id="password-change-form" style="display: none;">
+                    <form id="update-password-form">
+                        <div class="form-group">
+                            <label for="current-password">Current Password</label>
+                            <input type="password" id="current-password" placeholder="••••••••" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="new-password">New Password</label>
+                            <input type="password" id="new-password" placeholder="••••••••" minlength="6" required>
+                        </div>
+                        <button type="submit" class="btn">Update Password</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="news.js"></script>
+</body>
+</html>
