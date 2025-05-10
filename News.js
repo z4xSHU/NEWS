@@ -1,8 +1,8 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyBfem4eEYzcxd_CjccanVEFUZA8KyhIyFw",
-    authDomain: "news-project-1ebd3.firebaseapp.com",
-    projectId: "news-project-1ebd3",
-    appId: "1:120739526671:web:0dc615460f7a9712894b7a"
+    apiKey: "Secret API Key",
+    authDomain: "App Domain ID",
+    projectId: "Project ID",
+    appId: "Secret App ID"
 };
 
 firebase.initializeApp(firebaseConfig);
