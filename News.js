@@ -8,8 +8,8 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 
-const NEWS_API_KEY = '93a87318522747b78ae0e858c06d95e8';
-const NEWS_API_URL = 'https://newsapi.org/v2/top-headlines?country=us&pageSize=20';
+const NEWS_API_KEY = 'Secret API key';
+const NEWS_API_URL = 'Secret NEWS URL';
 
 const loginModal = document.getElementById('login-modal');
 const signupModal = document.getElementById('signup-modal');
